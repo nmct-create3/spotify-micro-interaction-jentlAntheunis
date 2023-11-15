@@ -1,4 +1,5 @@
 @import "https://unpkg.com/open-props/easings.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
 
 :root {
     /* spotify colors*/
@@ -7,6 +8,13 @@
     --spotify-white: #ffffff;
     --spotify-grey: #b3b3b3;
     --spotify-darkGrey: #222222;
+
+    --global-font-family: 'Manrope', sans-serif;
+
+    --global-space-m: 1.5rem;
+
+    --global-radius-l: 1rem;
+    --global-radius-m: .5rem;
 }
 
 /* reset */
@@ -27,11 +35,22 @@ svg {
 
 /* global page styles */
 
-html {}
+html {
+    --background-color: var(--spotify-black);
+    --text-color: var(--spotify-white);
+    
+    background-color: var(--background-color);
+    font-family: var(--global-font-family);
+    color: var(--text-color);
+}
 
 /* center everything */
 
-body {}
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
 
 /*
     Object: Button reset
@@ -69,6 +88,22 @@ body {}
 /*
     Album
 */
+
+.album {
+    --album-background-color: var(--spotify-darkGrey);
+    --album-padding: var(--global-space-m);
+
+    background-color: var(--album-background-color);
+
+    max-width: 25rem;
+    padding: var(--album-padding);
+    border-radius: var(--global-radius-l);
+
+    & .album__img {
+        border-radius: var(--global-radius-m);
+        margin-bottom: var(--album-padding);
+    }
+}
 
 /*
     Utitlities
