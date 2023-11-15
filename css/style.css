@@ -38,7 +38,7 @@ svg {
 html {
     --background-color: var(--spotify-black);
     --text-color: var(--spotify-white);
-    
+
     background-color: var(--background-color);
     font-family: var(--global-font-family);
     color: var(--text-color);
@@ -85,6 +85,39 @@ body {
     Toggle button
 */
 
+.toggle {
+    display: grid;
+    place-items: center;
+    & .toggle__icon {
+        grid-column: 1;
+        grid-row: 1;
+
+        transition: all .2s var(--ease-elastic-out-5)
+    }
+
+    & .icon--add {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    & .icon--check {
+        opacity: 0;
+        transform: rotate(90deg);
+
+        fill: var(--spotify-green);
+    }
+
+    &.added {
+        & .icon--add {
+            opacity: 0;
+            transform: rotate(-90deg);
+        }
+        & .icon--check {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+    }
+}
+
 /*
     Album
 */
@@ -102,6 +135,26 @@ body {
     & .album__img {
         border-radius: var(--global-radius-m);
         margin-bottom: var(--album-padding);
+    }
+
+    & .album__header {
+        display: grid;
+        grid-template-columns: 1fr 2rem;
+        grid-template-areas:
+            'title  button'
+            'artist button';
+
+        & .album__title {
+            grid-area: title;
+        }
+
+        & .album__artist {
+            grid-area: artist;
+        }
+
+        & .album__action {
+            grid-area: button;
+        }
     }
 }
 
